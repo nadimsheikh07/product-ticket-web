@@ -3,6 +3,7 @@ import React from "react";
 import MobileForm from "./mobileForm";
 import OTPForm from "./otpForm";
 import { LoadingButton } from "@mui/lab";
+import ProductDetail from "./productDetail";
 
 const ProductSection = ({ params, showMobile, formik, showDetail }) => {
   return (
@@ -33,7 +34,7 @@ const ProductSection = ({ params, showMobile, formik, showDetail }) => {
                           variant="contained"
                           loading={formik?.isSubmitting}
                         >
-                          Get OTP
+                          {showMobile ? "Get OTP" : "Submit"}
                         </LoadingButton>
                       </Box>
                     </CardContent>
@@ -42,6 +43,13 @@ const ProductSection = ({ params, showMobile, formik, showDetail }) => {
               </Box>
             </Grid>
           </Grid>
+        )}
+        {showDetail && (
+          <Card>
+            <CardContent>
+              <ProductDetail />
+            </CardContent>
+          </Card>
         )}
       </Container>
     </Box>

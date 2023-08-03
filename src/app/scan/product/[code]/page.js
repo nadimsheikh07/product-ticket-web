@@ -13,21 +13,32 @@ const CodePage = ({ params }) => {
   const formik = useFormik({
     initialValues: {
       phone: "",
+      otp: "",
     },
     validate: (values) => {
       const errors = {};
       const phoneRegex = /^\d+$/i;
-      if (!values.phone) {
-        errors.phone = "Phone is required";
-      } else if (!phoneRegex.test(values.phone)) {
-        errors.phone = "Invalid phone number";
-      } else if (values.phone.length < 10 || values.phone.length > 10) {
-        errors.phone = "Phone number must be 10 digit";
+      if (showMobile) {
+        if (!values.phone) {
+          errors.phone = "Phone is required";
+        } else if (!phoneRegex.test(values.phone)) {
+          errors.phone = "Invalid phone number";
+        } else if (values.phone.length < 10 || values.phone.length > 10) {
+          errors.phone = "Phone number must be 10 digit";
+        }
+      }
+      if (!showMobile) {
+        if (!values.otp) {
+          errors.otp = "OTP is required";
+        }
       }
       return errors;
     },
     onSubmit: async (values, { setFieldError }) => {
       setShowMobile(false);
+      if (!showMobile) {
+        setShowDetail(true);
+      }
       // await axiosInstance
       //   .post("")
       //   .then((response) => {
