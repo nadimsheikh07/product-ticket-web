@@ -55,7 +55,7 @@ const ProductSection = ({ params, showMobile, formik, showDetail }) => {
           >
             <Card>
               <CardContent>
-                <ProductDetail />
+                <ProductDetail formik={formik} />
               </CardContent>
             </Card>
           </Box>
