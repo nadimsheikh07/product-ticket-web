@@ -1,5 +1,5 @@
 // routes
-import { PATH_DASHBOARD } from "@/routes/paths";
+// import { PATH_DASHBOARD } from "@/routes/paths";
 
 // API
 // ----------------------------------------------------------------------
@@ -7,7 +7,7 @@ import { PATH_DASHBOARD } from "@/routes/paths";
 export const HOST_API_KEY = process.env.NEXT_PUBLIC_API_URL || "";
 
 // ROOT PATH AFTER LOGIN SUCCESSFUL
-export const PATH_AFTER_LOGIN = PATH_DASHBOARD.app; // as '/dashboard/app'
+export const PATH_AFTER_LOGIN = "/"; // as '/dashboard/app'
 
 // LAYOUT
 // ----------------------------------------------------------------------

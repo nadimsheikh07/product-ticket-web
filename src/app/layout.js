@@ -1,6 +1,5 @@
 "use client";
 import ThemeProvider from "@/theme";
-import "./globals.css";
 import { Inter } from "next/font/google";
 import { SettingsProvider, ThemeSettings } from "@/components/settings";
 import { MotionLazyContainer } from "@/components/animate";
