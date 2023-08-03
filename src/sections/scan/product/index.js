@@ -45,11 +45,20 @@ const ProductSection = ({ params, showMobile, formik, showDetail }) => {
           </Grid>
         )}
         {showDetail && (
-          <Card>
-            <CardContent>
-              <ProductDetail />
-            </CardContent>
-          </Card>
+          <Box
+            sx={{
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100%",
+              my: 4,
+            }}
+          >
+            <Card>
+              <CardContent>
+                <ProductDetail />
+              </CardContent>
+            </Card>
+          </Box>
         )}
       </Container>
     </Box>
