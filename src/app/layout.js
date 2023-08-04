@@ -5,6 +5,7 @@ import { SettingsProvider, ThemeSettings } from "@/components/settings";
 import { MotionLazyContainer } from "@/components/animate";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import SnackbarProvider from "@/components/snackbar/SnackbarProvider";
 
 export default function RootLayout({ children }) {
   return (
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <SettingsProvider>
               <MotionLazyContainer>
-                <ThemeSettings>{children}</ThemeSettings>
+                <ThemeSettings>
+                  <SnackbarProvider>{children}</SnackbarProvider>
+                </ThemeSettings>
               </MotionLazyContainer>
             </SettingsProvider>
           </LocalizationProvider>

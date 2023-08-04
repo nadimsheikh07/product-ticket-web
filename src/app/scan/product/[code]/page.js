@@ -38,62 +38,69 @@ const CodePage = ({ params }) => {
       }
       return errors;
     },
-    onSubmit: async (values, { setFieldError }) => {
-      setShowMobile(false);
-      if (!showMobile) {
-        setShowDetail(true);
-      }
-
+    onSubmit: async (values, { setFieldError, setFieldValue }) => {
       let url, Method;
       if (showMobile && !showDetail) {
-        url = "/api/mobile";
+        url = "/api/generate-otp";
         Method = "POST";
       } else if (!showMobile && !showDetail) {
-        url = "/api/otp";
+        url = "/api/verify-otp";
         Method = "POST";
       } else {
         url = "/api/product-detail";
         Method = "POST";
       }
 
-      console.log("urlurlurl", url);
-      // await axiosInstance
-      //   .post("")
-      //   .then((response) => {
-      //     if (response?.status === 200) {
-      //       setShowMobile(false);
-      //       enqueueSnackbar(response.data.message, {
-      //         variant: "success",
-      //       });
-      //     } else {
-      //       enqueueSnackbar(response.data.message, {
-      //         variant: "error",
-      //       });
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     const { response } = error;
-      //     // show error message
-      //     enqueueSnackbar(response?.data?.message, {
-      //       variant: "error",
-      //     });
+      await axiosInstance
+        .request({
+          method: Method,
+          url: url,
+          data: values,
+        })
+        .then((response) => {
+          if (response?.status === 200) {
+            enqueueSnackbar(response.data.message, {
+              variant: "success",
+            });
+            if (response?.data && response?.data?.otp) {
+              setFieldValue("otp", response?.data?.otp);
+            }
 
-      //     // set server error
-      //     if (response.status === 422) {
-      //       // eslint-disable-next-line no-unused-vars
-      //       for (const [key, value] of Object.entries(values)) {
-      //         if (response.data.errors[key]) {
-      //           setFieldError(key, response.data.errors[key][0]);
-      //         }
-      //       }
-      //     }
-      //   });
+            setShowMobile(false);
+            if (!showMobile) {
+              setShowDetail(true);
+            }
+            setShowMobile(false);
+          } else {
+            enqueueSnackbar(response.data.message, {
+              variant: "error",
+            });
+          }
+        })
+        .catch((error) => {
+          const { response } = error;
+          console.log("responseresponse", response);
+          // show error message
+          enqueueSnackbar(response?.data?.message, {
+            variant: "error",
+          });
+
+          // set server error
+          if (response.status === 422) {
+            // eslint-disable-next-line no-unused-vars
+            for (const [key, value] of Object.entries(values)) {
+              if (response.data.errors[key]) {
+                setFieldError(key, response.data.errors[key][0]);
+              }
+            }
+          }
+        });
     },
   });
 
   const getProductDetail = async () => {
     await axiosInstance
-      .get(`/product_scan/${code}`)
+      .get(`/api/product_scan/${code}`)
       .then((response) => {
         if (response?.status === 200) {
           setProductDetail(response?.data);
@@ -105,8 +112,10 @@ const CodePage = ({ params }) => {
       });
   };
   React.useEffect(() => {
-    getProductDetail();
-  }, []);
+    if (showDetail) {
+      getProductDetail();
+    }
+  }, [showDetail]);
 
   console.log("formikformik", productDetail);
   return (
