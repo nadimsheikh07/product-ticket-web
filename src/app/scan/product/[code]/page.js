@@ -40,6 +40,20 @@ const CodePage = ({ params }) => {
       if (!showMobile) {
         setShowDetail(true);
       }
+
+      let url, Method;
+      if (showMobile && !showDetail) {
+        url = "/api/mobile";
+        Method = "POST";
+      } else if (!showMobile && !showDetail) {
+        url = "/api/otp";
+        Method = "POST";
+      } else {
+        url = "/api/product-detail";
+        Method = "POST";
+      }
+
+      console.log("urlurlurl", url);
       // await axiosInstance
       //   .post("")
       //   .then((response) => {
