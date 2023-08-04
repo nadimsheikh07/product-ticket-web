@@ -1,4 +1,5 @@
 "use client";
+import { WebLayout } from "@/layouts/web";
 import { ProductSection } from "@/sections/scan";
 import axiosInstance from "@/utils/axios";
 import { useFormik } from "formik";
@@ -76,12 +77,14 @@ const CodePage = ({ params }) => {
   console.log("formikformik", showMobile);
   return (
     <React.Fragment>
-      <ProductSection
-        showMobile={showMobile}
-        formik={formik}
-        params={params}
-        showDetail={showDetail}
-      />
+      <WebLayout>
+        <ProductSection
+          showMobile={showMobile}
+          formik={formik}
+          params={params}
+          showDetail={showDetail}
+        />
+      </WebLayout>
     </React.Fragment>
   );
 };
