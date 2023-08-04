@@ -7,9 +7,12 @@ import { useSnackbar } from "notistack";
 import React from "react";
 
 const CodePage = ({ params }) => {
+  const { code } = params;
   const { enqueueSnackbar } = useSnackbar();
   const [showMobile, setShowMobile] = React.useState(true);
   const [showDetail, setShowDetail] = React.useState(false);
+  const [productDetail, setProductDetail] = React.useState({});
+  console.log("params", params);
 
   const formik = useFormik({
     initialValues: {
@@ -88,7 +91,24 @@ const CodePage = ({ params }) => {
     },
   });
 
-  console.log("formikformik", showMobile);
+  const getProductDetail = async () => {
+    await axiosInstance
+      .get(`/product_scan/${code}`)
+      .then((response) => {
+        if (response?.status === 200) {
+          setProductDetail(response?.data);
+        }
+      })
+      .catch((error) => {
+        console.log("ProductDetailError");
+        const { response } = error;
+      });
+  };
+  React.useEffect(() => {
+    getProductDetail();
+  }, []);
+
+  console.log("formikformik", productDetail);
   return (
     <React.Fragment>
       <WebLayout>
