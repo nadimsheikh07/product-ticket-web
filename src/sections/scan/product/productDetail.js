@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 import ProductForm from "./productForm";
 
-const ProductDetail = ({ formik }) => {
+const ProductDetail = ({ formik, productDetail }) => {
   return (
     <React.Fragment>
       <Box>
@@ -16,7 +16,9 @@ const ProductDetail = ({ formik }) => {
                 <Typography fontWeight={600}>Name :</Typography>
               </Box>
               <Box>
-                <Typography variant="body2">Test USer</Typography>
+                <Typography variant="body2">
+                  {productDetail?.client?.name}
+                </Typography>
               </Box>
             </Stack>
           </Box>
@@ -27,7 +29,9 @@ const ProductDetail = ({ formik }) => {
                 <Typography fontWeight={600}>Email :</Typography>
               </Box>
               <Box>
-                <Typography variant="body2">Test@gmail.com</Typography>
+                <Typography variant="body2">
+                  {productDetail?.client?.email}
+                </Typography>
               </Box>
             </Stack>
           </Box>
@@ -37,7 +41,21 @@ const ProductDetail = ({ formik }) => {
                 <Typography fontWeight={600}>Phone :</Typography>
               </Box>
               <Box>
-                <Typography variant="body2">1234567890</Typography>
+                <Typography variant="body2">
+                  {productDetail?.client?.phone}
+                </Typography>
+              </Box>
+            </Stack>
+          </Box>
+          <Box>
+            <Stack direction="row" spacing={3} alignItems="center">
+              <Box sx={{ width: "200px" }}>
+                <Typography fontWeight={600}>Address :</Typography>
+              </Box>
+              <Box>
+                <Typography variant="body2">
+                  {productDetail?.client?.address}
+                </Typography>
               </Box>
             </Stack>
           </Box>
@@ -54,7 +72,9 @@ const ProductDetail = ({ formik }) => {
                 <Typography fontWeight={600}>Invoice No. :</Typography>
               </Box>
               <Box>
-                <Typography variant="body2">Invoice No.</Typography>
+                <Typography variant="body2">
+                  {productDetail?.invoice_number}
+                </Typography>
               </Box>
             </Stack>
           </Box>
@@ -65,7 +85,9 @@ const ProductDetail = ({ formik }) => {
                 <Typography fontWeight={600}>Invoice Date :</Typography>
               </Box>
               <Box>
-                <Typography variant="body2">Product Name</Typography>
+                <Typography variant="body2">
+                  {productDetail?.invoice_date}
+                </Typography>
               </Box>
             </Stack>
           </Box>
@@ -75,7 +97,7 @@ const ProductDetail = ({ formik }) => {
                 <Typography fontWeight={600}>Product Name :</Typography>
               </Box>
               <Box>
-                <Typography variant="body2">Product Name</Typography>
+                <Typography variant="body2">{productDetail?.name}</Typography>
               </Box>
             </Stack>
           </Box>
@@ -86,7 +108,7 @@ const ProductDetail = ({ formik }) => {
                 <Typography fontWeight={600}>Model :</Typography>
               </Box>
               <Box>
-                <Typography variant="body2">Model Name</Typography>
+                <Typography variant="body2">{productDetail?.model}</Typography>
               </Box>
             </Stack>
           </Box>
@@ -97,7 +119,9 @@ const ProductDetail = ({ formik }) => {
                 <Typography fontWeight={600}>Warranty Start :</Typography>
               </Box>
               <Box>
-                <Typography variant="body2">Warranty Start</Typography>
+                <Typography variant="body2">
+                  {productDetail?.warranty_start}
+                </Typography>
               </Box>
             </Stack>
           </Box>
@@ -108,7 +132,9 @@ const ProductDetail = ({ formik }) => {
                 <Typography fontWeight={600}>Warranty End :</Typography>
               </Box>
               <Box>
-                <Typography variant="body2">Warranty End</Typography>
+                <Typography variant="body2">
+                  {productDetail?.warranty_end}
+                </Typography>
               </Box>
             </Stack>
           </Box>

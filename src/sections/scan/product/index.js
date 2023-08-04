@@ -5,7 +5,13 @@ import OTPForm from "./otpForm";
 import { LoadingButton } from "@mui/lab";
 import ProductDetail from "./productDetail";
 
-const ProductSection = ({ params, showMobile, formik, showDetail }) => {
+const ProductSection = ({
+  params,
+  showMobile,
+  formik,
+  showDetail,
+  productDetail,
+}) => {
   return (
     <Box component="div">
       <Container>
@@ -55,7 +61,7 @@ const ProductSection = ({ params, showMobile, formik, showDetail }) => {
           >
             <Card>
               <CardContent>
-                <ProductDetail formik={formik} />
+                <ProductDetail productDetail={productDetail} formik={formik} />
               </CardContent>
             </Card>
           </Box>

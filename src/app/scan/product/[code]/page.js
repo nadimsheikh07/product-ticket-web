@@ -117,7 +117,6 @@ const CodePage = ({ params }) => {
     }
   }, [showDetail]);
 
-  console.log("formikformik", productDetail);
   return (
     <React.Fragment>
       <WebLayout>
@@ -126,6 +125,7 @@ const CodePage = ({ params }) => {
           formik={formik}
           params={params}
           showDetail={showDetail}
+          productDetail={productDetail}
         />
       </WebLayout>
     </React.Fragment>
