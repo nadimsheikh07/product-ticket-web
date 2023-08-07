@@ -71,6 +71,9 @@ const CodePage = ({ params }) => {
               setShowDetail(true);
             }
             setShowMobile(false);
+            if (response?.data?.accessToken) {
+              axiosInstance.defaults.headers.common.Authorization = `Bearer ${response?.data?.accessToken}`;
+            }
           } else {
             enqueueSnackbar(response.data.message, {
               variant: "error",
