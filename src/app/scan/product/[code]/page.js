@@ -18,6 +18,8 @@ const CodePage = ({ params }) => {
     initialValues: {
       phone: "",
       otp: "",
+      file: "",
+      code: code,
     },
     validate: (values) => {
       const errors = {};
@@ -47,7 +49,7 @@ const CodePage = ({ params }) => {
         url = "/api/verify-otp";
         Method = "POST";
       } else {
-        url = "/api/product-detail";
+        url = "/api/generate-ticket";
         Method = "POST";
       }
 
