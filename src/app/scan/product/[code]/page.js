@@ -1,4 +1,5 @@
 "use client";
+import ThankyouComponent from "@/components/thank-you";
 import { WebLayout } from "@/layouts/web";
 import { ProductSection } from "@/sections/scan";
 import axiosInstance from "@/utils/axios";
@@ -14,12 +15,15 @@ const CodePage = ({ params }) => {
   const [productDetail, setProductDetail] = React.useState({});
   console.log("params", params);
 
+  const [message, setMessage] = React.useState(false);
+
   const formik = useFormik({
     initialValues: {
       phone: "",
       otp: "",
       file: "",
       code: code,
+      description: "",
     },
     validate: (values) => {
       const errors = {};
@@ -33,7 +37,7 @@ const CodePage = ({ params }) => {
           errors.phone = "Phone number must be 10 digit";
         }
       }
-      if (!showMobile) {
+      if (!showMobile && !showDetail) {
         if (!values.otp) {
           errors.otp = "OTP is required";
         }
@@ -76,6 +80,9 @@ const CodePage = ({ params }) => {
             if (response?.data?.accessToken) {
               axiosInstance.defaults.headers.common.Authorization = `Bearer ${response?.data?.accessToken}`;
             }
+            if (url === "/api/generate-ticket") {
+              setMessage(code);
+            }
           } else {
             enqueueSnackbar(response.data.message, {
               variant: "error",
@@ -102,6 +109,11 @@ const CodePage = ({ params }) => {
         });
     },
   });
+
+  const onReset = () => {
+    setMessage(false);
+    formik.resetForm();
+  };
 
   const getProductDetail = async () => {
     await axiosInstance
@@ -133,6 +145,7 @@ const CodePage = ({ params }) => {
           productDetail={productDetail}
         />
       </WebLayout>
+      <ThankyouComponent open={message} onReset={onReset} />
     </React.Fragment>
   );
 };
