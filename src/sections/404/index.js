@@ -49,14 +49,14 @@ export default function Page404() {
             />
           </m.div>
 
-          <Button
+          {/* <Button
             component={NextLink}
             href="/scan/product/403BCE6C"
             size="large"
             variant="contained"
           >
             Go to Home
-          </Button>
+          </Button> */}
         </MotionContainer>
       </CompactLayout>
     </>

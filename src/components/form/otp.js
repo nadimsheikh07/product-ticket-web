@@ -19,7 +19,7 @@ const OTPBox = ({ formik }) => {
             onChange={(e) => formik.setFieldValue("otp", e)}
             error={formik.touched.otp && formik.errors.otp}
             helperText={formik.touched.otp && formik.errors.otp}
-            numInputs={4}
+            numInputs={6}
             renderSeparator={<span style={{ marginRight: "5px" }}></span>}
             renderInput={(props) => <input {...props} />}
           />

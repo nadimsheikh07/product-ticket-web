@@ -21,11 +21,11 @@ const ProductForm = ({ formik }) => {
       <Box sx={{ mt: 1 }}>
         <DragDrop
           fullWidth={true}
-          name="photo"
-          url="admin/upload/image"
-          value={formik.values.photo}
+          name="file"
+          url="api/upload/image"
+          value={formik.values.file}
           onChange={(e) => {
-            formik.setFieldValue("photo", e);
+            formik.setFieldValue("file", e);
           }}
         />
       </Box>
