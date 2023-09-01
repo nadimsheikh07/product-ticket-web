@@ -1,5 +1,4 @@
-"use client";
-import { Public_Sans } from "next/font/google";
+import { Public_Sans, Barlow, Playfair_Display } from "@next/font/google";
 
 // ----------------------------------------------------------------------
 
@@ -27,6 +26,13 @@ export function responsiveFontSizes({ sm, md, lg }) {
 
 export const primaryFont = Public_Sans({
   weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["Helvetica", "Arial", "sans-serif"],
+});
+
+export const secondaryFont = Playfair_Display({
+  weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   display: "swap",
   fallback: ["Helvetica", "Arial", "sans-serif"],
