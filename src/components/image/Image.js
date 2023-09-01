@@ -1,5 +1,6 @@
+/* eslint-disable react/display-name */
 import PropTypes from "prop-types";
-import * as React from "react";
+import { forwardRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 // @mui
 import { Box } from "@mui/material";
@@ -8,41 +9,61 @@ import getRatio from "./getRatio";
 
 // ----------------------------------------------------------------------
 
-function ImageForwardRef(
-  { ratio, disabledEffect = false, effect = "blur", sx, ...other },
-  ref
-) {
-  const content = (
-    <Box
-      component={LazyLoadImage}
-      wrapperClassName="wrapper"
-      effect={disabledEffect ? undefined : effect}
-      placeholderSrc={
-        disabledEffect ? "/assets/transparent.png" : "/assets/placeholder.svg"
-      }
-      sx={{ width: 1, height: 1, objectFit: "cover" }}
-      {...other}
-    />
-  );
+const LazyLoadImageBox = forwardRef(
+  ({ ratio, disabledEffect = false, effect = "blur", sx, ...other }, ref) => {
+    const content = (
+      <Box
+        component={LazyLoadImage}
+        wrapperClassName="wrapper"
+        effect={disabledEffect ? undefined : effect}
+        placeholderSrc={
+          disabledEffect ? "/assets/transparent.png" : "/assets/placeholder.svg"
+        }
+        sx={{ width: 1, height: 1, objectFit: "cover" }}
+        {...other}
+      />
+    );
 
-  if (ratio) {
+    if (ratio) {
+      return (
+        <Box
+          ref={ref}
+          component="span"
+          sx={{
+            width: 1,
+            lineHeight: 1,
+            display: "block",
+            overflow: "hidden",
+            position: "relative",
+            pt: getRatio(ratio),
+            "& .wrapper": {
+              top: 0,
+              left: 0,
+              width: 1,
+              height: 1,
+              position: "absolute",
+              backgroundSize: "cover !important",
+            },
+            ...sx,
+          }}
+        >
+          {content}
+        </Box>
+      );
+    }
+
     return (
       <Box
         ref={ref}
         component="span"
         sx={{
-          width: 1,
           lineHeight: 1,
           display: "block",
           overflow: "hidden",
           position: "relative",
-          pt: getRatio(ratio),
           "& .wrapper": {
-            top: 0,
-            left: 0,
             width: 1,
             height: 1,
-            position: "absolute",
             backgroundSize: "cover !important",
           },
           ...sx,
@@ -52,32 +73,9 @@ function ImageForwardRef(
       </Box>
     );
   }
+);
 
-  return (
-    <Box
-      ref={ref}
-      component="span"
-      sx={{
-        lineHeight: 1,
-        display: "block",
-        overflow: "hidden",
-        position: "relative",
-        "& .wrapper": {
-          width: 1,
-          height: 1,
-          backgroundSize: "cover !important",
-        },
-        ...sx,
-      }}
-    >
-      {content}
-    </Box>
-  );
-}
-
-const Image = React.forwardRef(ImageForwardRef);
-
-Image.propTypes = {
+LazyLoadImageBox.propTypes = {
   sx: PropTypes.object,
   effect: PropTypes.string,
   disabledEffect: PropTypes.bool,
@@ -94,4 +92,4 @@ Image.propTypes = {
   ]),
 };
 
-export default Image;
+export default LazyLoadImageBox;
