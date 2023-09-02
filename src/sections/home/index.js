@@ -21,7 +21,7 @@ const HomeSection = () => {
         <Box>
           <About />
         </Box>
-        <Box>
+        <Box >
           <StepsProcedure />
         </Box>
       </Stack>
