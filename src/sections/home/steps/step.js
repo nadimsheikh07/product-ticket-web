@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 
 const Step = () => {
@@ -8,16 +8,26 @@ const Step = () => {
         {[...Array(4)].map((elem, index) => {
           return (
             <Grid item md={3} sm={6} xs={12} key={index}>
-              <Box
+              <Stack
+                justifyContent="center"
+                alignItems="center"
                 sx={{
-                  border: "2px solid grey",
+                  border: (theme) => `2px solid ${theme.palette.primary.main}`,
                   height: "250px",
                   width: "250px",
                   m: "auto",
+                  background: "rgba(54, 161, 212, 0.12)",
+                  borderRadius: "16px",
+                  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                  backdropFilter: "blur(1.6px)",
+                  WebkitBackdropFilter: "blur(1.6px)",
+                  border: "1px solid rgba(54, 161, 212, 0.21)",
                 }}
               >
-                <Typography >Step {index + 1}</Typography>
-              </Box>
+                <Typography variant="h3" color="primary">
+                  Step {index + 1}
+                </Typography>
+              </Stack>
             </Grid>
           );
         })}
