@@ -1,19 +1,19 @@
-"use client";
 import ThankyouComponent from "@/components/thank-you";
-import { WebLayout } from "@/layouts/web";
+import { WebLayout } from "@/layouts";
 import { ProductSection } from "@/sections/scan";
 import axiosInstance from "@/utils/axios";
 import { useFormik } from "formik";
+import { useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import React from "react";
 
-const CodePage = ({ params }) => {
-  const { code } = params;
+const CodePage = () => {
+  const { query } = useRouter();
+  const { code } = query;
   const { enqueueSnackbar } = useSnackbar();
   const [showMobile, setShowMobile] = React.useState(true);
   const [showDetail, setShowDetail] = React.useState(false);
   const [productDetail, setProductDetail] = React.useState({});
-  console.log("params", params);
 
   const [message, setMessage] = React.useState(false);
 

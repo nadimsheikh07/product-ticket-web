@@ -21,7 +21,6 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import { Close, Phone } from "@mui/icons-material";
-import { usePathname } from "next/navigation";
 import useOffSetTop from "@/hooks/useOffSetTop";
 import { useRouter } from "next/router";
 
@@ -58,7 +57,7 @@ const Header = (props) => {
   const { window } = props;
   const isOffset = useOffSetTop(48);
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const pathname = usePathname();
+  const { pathname } = useRouter();
 
   const handleDrawerToggle = (boolean) => {
     setMobileOpen((prevState) => !prevState);
@@ -99,7 +98,10 @@ const Header = (props) => {
             <Button
               variant="contained"
               fullWidth
-              onClick={() =>{ router.push("/auth/login");setMobileOpen(false)}}
+              onClick={() => {
+                router.push("/auth/login");
+                setMobileOpen(false);
+              }}
             >
               Log In
             </Button>
@@ -108,7 +110,10 @@ const Header = (props) => {
             <Button
               variant="contained"
               fullWidth
-              onClick={() =>{ router.push("/auth/register");setMobileOpen(false)}}
+              onClick={() => {
+                router.push("/auth/register");
+                setMobileOpen(false);
+              }}
             >
               Sign Up
             </Button>
