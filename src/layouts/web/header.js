@@ -74,10 +74,11 @@ const Header = (props) => {
       >
         <Box sx={{ my: 2 }}>
           <Box
-            width="130px"
+            width="80px"
+            
             // maxWidth={"130px"}
             component="img"
-            src="/assets/images/logo/logo.png"
+            src="/bgbanner.jpg"
             onClick={() => setMobileOpen(false)}
           />
         </Box>
@@ -99,20 +100,26 @@ const Header = (props) => {
             <Button
               variant="contained"
               fullWidth
-              onClick={() =>{ router.push("/auth/login");setMobileOpen(false)}}
+              onClick={() => {
+                router.push("/auth/login");
+                setMobileOpen(false);
+              }}
             >
               Log In
             </Button>
           </ListItem>
-          <ListItem>
+          {/* <ListItem>
             <Button
               variant="contained"
               fullWidth
-              onClick={() =>{ router.push("/auth/register");setMobileOpen(false)}}
+              onClick={() => {
+                router.push("/auth/register");
+                setMobileOpen(false);
+              }}
             >
               Sign Up
             </Button>
-          </ListItem>
+          </ListItem> */}
         </Stack>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
@@ -143,11 +150,11 @@ const Header = (props) => {
             py: 1,
             zIndex: 4,
             boxShadow: !isOffset && "none",
-            top: isOffset ? "0px" : "48px",
+            top: isOffset ? "0px" : "0px",
             background: (theme) =>
               isOffset
-                ? theme.palette.common.white
-                : alpha(theme.palette.common.black, 0.8),
+                ? alpha(theme.palette.common.white, 0.9)
+                : alpha(theme.palette.common.white, 1),
             transition: (theme) =>
               `${theme.transitions.create(
                 ["top", "color", "background-color", "box-shadow"],
@@ -169,7 +176,7 @@ const Header = (props) => {
                 <Box
                   component="img"
                   alt="logo"
-                  src="/favicon.ico"
+                  src="/bgbanner.jpg"
                   sx={{ width: "40px" }}
                 />
               </Box>
@@ -238,19 +245,21 @@ const Header = (props) => {
                   <Box>
                     <Button
                       variant="outlined"
-                      onClick={() => router.push("/auth/login")}
+                      onClick={() =>
+                        router.push("https://qr-ticket-client.vercel.app/")
+                      }
                     >
                       Log In
                     </Button>
                   </Box>
-                  <Box>
+                  {/* <Box>
                     <Button
                       variant="outlined"
                       onClick={() => router.push("/auth/register")}
                     >
                       Sign Up
                     </Button>
-                  </Box>
+                  </Box> */}
                 </Stack>
               </Box>
             </Toolbar>

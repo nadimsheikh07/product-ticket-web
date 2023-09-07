@@ -6,7 +6,7 @@ import Topbar from "./topbar";
 const WebLayout = ({ children }) => {
   return (
     <>
-      <Topbar />
+      {/* <Topbar /> */}
       <Header />
         {children}
       <Footer />
