@@ -140,7 +140,7 @@ const CodePage = () => {
         <ProductSection
           showMobile={showMobile}
           formik={formik}
-          params={params}
+          params={query}
           showDetail={showDetail}
           productDetail={productDetail}
         />
