@@ -2,6 +2,7 @@ import typography, { secondaryFont } from "@/theme/typography";
 import {
   Email,
   Facebook,
+  Instagram,
   LinkedIn,
   LocationOn,
   Phone,
@@ -33,12 +34,11 @@ const Footer = () => {
         <Grid
           container
           columnSpacing={{ md: 8 }}
-          
           rowSpacing={{ md: 0, sm: 2, xs: 2 }}
           justifyContent="center"
         >
           <Grid item md={3} sm={6} xs={12}>
-            <List sx={{textAlign:"center"}}>
+            <List sx={{ textAlign: "center" }}>
               <ListSubheader
                 sx={{
                   mb: 2,
@@ -50,7 +50,7 @@ const Footer = () => {
               >
                 About Us
               </ListSubheader>
-              <ListItem disablePadding >
+              <ListItem disablePadding>
                 <Stack spacing={1.5} sx={{ marginLeft: "1px" }}>
                   {/* <Box
                     width="125px"
@@ -66,14 +66,14 @@ const Footer = () => {
                       },
                       textAlign: "justify",
                     }}
-                    primary="Scribe Seva collaborates and communicates with its clients to provide design, technology, and marketing services."
+                    primary="Qr collaborates and communicates with its clients to provide design, technology, and marketing services."
                   />
                 </Stack>
               </ListItem>
             </List>
           </Grid>
           <Grid item md={3} sm={6} xs={12}>
-            <List sx={{textAlign:"center"}}>
+            <List sx={{ textAlign: "center" }}>
               <ListSubheader
                 sx={{
                   mb: 2,
@@ -89,8 +89,7 @@ const Footer = () => {
                 <ListItemButton>
                   <ListItemText
                     sx={{
-
-                      textAlign:"center",
+                      textAlign: "center",
                       color: (theme) => theme.palette.common.black,
                       "& .MuiTypography-root": {
                         ...typography.body2,
@@ -105,7 +104,7 @@ const Footer = () => {
                 <ListItemButton>
                   <ListItemText
                     sx={{
-                      textAlign:"center",
+                      textAlign: "center",
                       color: (theme) => theme.palette.common.black,
                       "& .MuiTypography-root": {
                         ...typography.body2,
@@ -150,7 +149,7 @@ const Footer = () => {
                 <ListItemButton>
                   <ListItemText
                     sx={{
-                      textAlign:"center",
+                      textAlign: "center",
                       color: (theme) => theme.palette.common.black,
                       "& .MuiTypography-root": {
                         ...typography.body2,
@@ -163,7 +162,7 @@ const Footer = () => {
             </List>
           </Grid>
           <Grid item md={3} sm={6} xs={12}>
-            <List sx={{textAlign:"center"}}>
+            <List sx={{ textAlign: "center" }}>
               <ListSubheader
                 sx={{
                   mb: 2,
@@ -179,7 +178,7 @@ const Footer = () => {
                 <ListItemButton>
                   <ListItemText
                     sx={{
-                      textAlign:"center",
+                      textAlign: "center",
                       color: (theme) => theme.palette.common.black,
                       "& .MuiTypography-root": {
                         ...typography.body2,
@@ -194,7 +193,7 @@ const Footer = () => {
                 <ListItemButton>
                   <ListItemText
                     sx={{
-                      textAlign:"center",
+                      textAlign: "center",
                       color: (theme) => theme.palette.common.black,
                       "& .MuiTypography-root": {
                         ...typography.body2,
@@ -209,7 +208,7 @@ const Footer = () => {
                 <ListItemButton>
                   <ListItemText
                     sx={{
-                      textAlign:"center",
+                      textAlign: "center",
                       color: (theme) => theme.palette.common.black,
                       "& .MuiTypography-root": {
                         ...typography.body2,
@@ -221,9 +220,9 @@ const Footer = () => {
               </ListItem>
             </List>
           </Grid>
-      
+
           <Grid item md={3} sm={6} xs={12}>
-            <List sx={{textAlign:"center"}}>
+            <List sx={{ textAlign: "center" }}>
               <ListSubheader
                 sx={{
                   mb: 2,
@@ -245,13 +244,13 @@ const Footer = () => {
                   </ListItemIcon>
                   <ListItemText
                     sx={{
-                      textAlign:"center",
+                      textAlign: "center",
                       color: (theme) => theme.palette.common.black,
                       "& .MuiTypography-root": {
                         ...typography.body2,
                       },
                     }}
-                    primary="123 Street, New York, USA"
+                    primary="435, 4th floor Emrald Tower, Hathipole, Udaipur"
                   />
                 </ListItemButton>
               </ListItem>
@@ -266,13 +265,13 @@ const Footer = () => {
                   </ListItemIcon>
                   <ListItemText
                     sx={{
-                      textAlign:"center",
+                      textAlign: "center",
                       color: (theme) => theme.palette.common.black,
                       "& .MuiTypography-root": {
                         ...typography.body2,
                       },
                     }}
-                    primary="+012 3456789"
+                    primary="+91 9928736111"
                   />
                 </ListItemButton>
               </ListItem>
@@ -287,19 +286,19 @@ const Footer = () => {
                   </ListItemIcon>
                   <ListItemText
                     sx={{
-                      textAlign:"center",
+                      textAlign: "center",
                       color: (theme) => theme.palette.common.black,
                       "& .MuiTypography-root": {
                         ...typography.body2,
                       },
                     }}
-                    primary="info@example.com"
+                    primary="shoqeen@gmail.com"
                   />
                 </ListItemButton>
               </ListItem>
 
-              <ListItem disablePadding sx={{justifyContent:"center"}}>
-                <Stack direction="row"  spacing={1} pl={2} mt={1.5}>
+              <ListItem disablePadding sx={{ justifyContent: "center" }}>
+                <Stack direction="row" spacing={1} pl={2} mt={1.5}>
                   <Box>
                     <Stack
                       direction="row"
@@ -331,7 +330,7 @@ const Footer = () => {
                         borderRadius: "4px",
                       }}
                     >
-                      <Twitter
+                      <Instagram
                         fontSize="small"
                         sx={{ color: (theme) => theme.palette.common.black }}
                       />
@@ -373,7 +372,7 @@ const Footer = () => {
           }}
         >
           <Typography variant="overline" color="common.white" fontWeight={400}>
-            © Copyright Scribe Seva. All Rights Reserved
+            © Copyright Qr. All Rights Reserved
           </Typography>
         </Box>
       </Container>
