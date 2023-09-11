@@ -1,4 +1,4 @@
-import { Facebook, LinkedIn, Twitter } from "@mui/icons-material";
+import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
 import {
   Box,
   Container,
@@ -40,7 +40,7 @@ const Topbar = () => {
                 >
                   <Facebook sx={{color:"white"}} />
 
-                  <Twitter sx={{color:"white"}}/>
+                  <Instagram sx={{color:"white"}}/>
 
                   <LinkedIn sx={{color:"white"}}/>
                 </Stack>

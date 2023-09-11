@@ -7,7 +7,7 @@ const AboutContent = () => {
     <React.Fragment>
       <Stack spacing={1.2} >
         <Typography component="p" variant="body2" sx={{fontSize:"16px"}}>
-          Scribe Seva  has been a well-known name for a variety of web-based
+          Qr  has been a well-known name for a variety of web-based
           services since its inception. We offer web design, web development,
           graphics design, internet marketing, mobile application development,
           video animation, and other related services. We have watched services
@@ -17,14 +17,14 @@ const AboutContent = () => {
           professional work force and cutting-edge technologies.
         </Typography>
         <Typography component="p" variant="body2"  sx={{fontSize:"16px"}}>
-          Why Scribe Seva ? No Clutter, Innovative Approach Over ten years
+          Why Qr ? No Clutter, Innovative Approach Over ten years
           of expertise Main emphasis on customer satisfaction Systematic work as
           we incorporate our buyers in team Reporting on a regular basis Quality
           control Features that must be kept an eye onChoosing any company:
         </Typography>
       </Stack>
 
-      <Box sx={{ mt: 3 }}>
+      {/* <Box sx={{ mt: 3 }}>
         <Button
           variant="outlined"
           color="primary"
@@ -33,7 +33,7 @@ const AboutContent = () => {
         >
           Read More
         </Button>
-      </Box>
+      </Box> */}
     </React.Fragment>
   );
 };
