@@ -13,7 +13,7 @@ const ProductSection = ({
   productDetail,
 }) => {
   return (
-    <Box component="div">
+    <Box component="div" sx={{ mt: 10 }}>
       <Container>
         {!showDetail && (
           <Grid

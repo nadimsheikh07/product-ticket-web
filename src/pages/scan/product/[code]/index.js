@@ -124,7 +124,7 @@ const CodePage = () => {
         }
       })
       .catch((error) => {
-        console.log("ProductDetailError");
+        console.log("ProductDetailError", error);
         const { response } = error;
       });
   };
