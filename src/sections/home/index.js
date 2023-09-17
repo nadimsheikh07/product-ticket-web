@@ -6,7 +6,7 @@ import StepsProcedure from "./steps";
 const HomeSection = () => {
   return (
     <>
-      <Stack spacing={8} mt={8}>
+      <Stack spacing={{ md: 8, sm: 4, xs: 4 }} mt={8}>
         <Box
           component="img"
           sx={{

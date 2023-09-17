@@ -36,7 +36,7 @@ const TwiceImage = ({
             borderRadius: "5px",
           },
         }}
-        spacing={{ md: 4, sm: 2, xs: 2 }}
+        spacing={{ md: 4, sm: 1, xs: 1 }}
       >
         <Grid item md={6} lg={6}>
           <ImageComponent
