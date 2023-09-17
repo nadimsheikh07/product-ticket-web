@@ -12,6 +12,7 @@ import {
   Box,
   Container,
   Grid,
+  IconButton,
   List,
   ListItem,
   ListItemButton,
@@ -29,19 +30,14 @@ const Footer = () => {
     <Box>
       <Container
         maxWidth
-        sx={{ background: (theme) => theme.palette.grey.main, py: 3 }}
+        sx={{ background: (theme) => theme.palette.grey[100], py: 3 }}
       >
-        <Grid
-          container
-          columnSpacing={{ md: 8 }}
-          rowSpacing={{ md: 0, sm: 2, xs: 2 }}
-          justifyContent="center"
-        >
-          <Grid item md={3} sm={6} xs={12}>
+        <Grid container spacing={4}>
+          <Grid item md={4} sm={6} xs={12}>
             <List>
               <ListSubheader
                 sx={{
-                  mb: 2,
+                  mb: 1,
                   fontFamily: `${secondaryFont.style.fontFamily} !important`,
                   color: (theme) => theme.palette.common.black,
                   background: "transparent",
@@ -51,299 +47,140 @@ const Footer = () => {
                 About Us
               </ListSubheader>
               <ListItem disablePadding>
-                <Stack spacing={1.5} sx={{ marginLeft: "1px" }}>
-                  <ListItemText
-                    sx={{
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                        pl: 2,
-                      },
-                      textAlign: "justify",
-                    }}
-                    primary="Qr collaborates and communicates with its clients to provide design, technology, and marketing services."
-                  />
-                </Stack>
+                <ListItemText
+                  sx={{
+                    color: (theme) => theme.palette.common.black,
+                    "& .MuiTypography-root": {
+                      ...typography.body2,
+                      pl: 2,
+                    },
+                    textAlign: "justify",
+                  }}
+                  primary="Qr collaborates and communicates with its clients to provide design, technology, and marketing services."
+                />
               </ListItem>
             </List>
           </Grid>
-          <Grid item md={3} sm={6} xs={12}>
-            <List>
-              <ListSubheader
-                sx={{
-                  mb: 2,
-                  fontFamily: `${secondaryFont.style.fontFamily} !important`,
-                  color: (theme) => theme.palette.common.black,
-                  background: "transparent",
-                  fontSize: (theme) => theme.typography.h4,
-                }}
-              >
-                Quick Links
-              </ListSubheader>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    sx={{
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="Home"
+          <Grid item md={4} sm={6} xs={12}>
+            <ListSubheader
+              sx={{
+                mb: 1,
+                fontFamily: `${secondaryFont.style.fontFamily} !important`,
+                color: (theme) => theme.palette.common.black,
+                background: "transparent",
+                fontSize: (theme) => theme.typography.h4,
+              }}
+            >
+              Address
+            </ListSubheader>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <LocationOn
+                    fontSize="small"
+                    sx={{ color: (theme) => theme.palette.common.black }}
                   />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    sx={{
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="About us"
+                </ListItemIcon>
+                <ListItemText
+                  sx={{
+                    color: (theme) => theme.palette.common.black,
+                    "& .MuiTypography-root": {
+                      ...typography.body2,
+                    },
+                  }}
+                  primary="435, 4th floor Emrald Tower, Hathipole, Udaipur"
+                />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <Phone
+                    fontSize="small"
+                    sx={{ color: (theme) => theme.palette.common.black }}
                   />
-                </ListItemButton>
-              </ListItem>
-
-              {/* <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    sx={{
-                      textAlign:"center",
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="Services"
+                </ListItemIcon>
+                <ListItemText
+                  sx={{
+                    color: (theme) => theme.palette.common.black,
+                    "& .MuiTypography-root": {
+                      ...typography.body2,
+                    },
+                  }}
+                  primary="+91 9928736111"
+                />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <Email
+                    fontSize="small"
+                    sx={{ color: (theme) => theme.palette.common.black }}
                   />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    sx={{
-                      textAlign:"center",
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="Career"
-                  />
-                </ListItemButton>
-              </ListItem> */}
-
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    sx={{
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="Contact"
-                  />
-                </ListItemButton>
-              </ListItem>
-            </List>
+                </ListItemIcon>
+                <ListItemText
+                  sx={{
+                    color: (theme) => theme.palette.common.black,
+                    "& .MuiTypography-root": {
+                      ...typography.body2,
+                    },
+                  }}
+                  primary="shoqeen@gmail.com"
+                />
+              </ListItemButton>
+            </ListItem>
           </Grid>
-          <Grid item md={3} sm={6} xs={12}>
-            <List>
-              <ListSubheader
-                sx={{
-                  mb: 2,
-                  fontFamily: `${secondaryFont.style.fontFamily} !important`,
-                  color: (theme) => theme.palette.common.black,
-                  background: "transparent",
-                  fontSize: (theme) => theme.typography.h4,
-                }}
-              >
-                Information
-              </ListSubheader>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    sx={{
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="Refund Policy"
+          <Grid item md={4} sm={6} xs={12}>
+            <ListSubheader
+              sx={{
+                mb: 1,
+                fontFamily: `${secondaryFont.style.fontFamily} !important`,
+                color: (theme) => theme.palette.common.black,
+                background: "transparent",
+                fontSize: (theme) => theme.typography.h4,
+              }}
+            >
+              Follow Us
+            </ListSubheader>
+            <Stack direction="row" spacing={1}>
+              <ListItem disablePadding sx={{ width: "max-content" }}>
+                <ListItemButton
+                  sx={{
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Facebook
+                    fontSize="small"
+                    sx={{ color: (theme) => theme.palette.common.black }}
                   />
                 </ListItemButton>
               </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    sx={{
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="Privacy Statement"
+              <ListItem disablePadding sx={{ width: "max-content" }}>
+                <ListItemButton
+                  sx={{
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Instagram
+                    fontSize="small"
+                    sx={{ color: (theme) => theme.palette.common.black }}
                   />
                 </ListItemButton>
               </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    sx={{
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="Shipping & Delivering Information "
+              <ListItem disablePadding sx={{ width: "max-content" }}>
+                <ListItemButton
+                  sx={{
+                    borderRadius: "4px",
+                  }}
+                >
+                  <LinkedIn
+                    fontSize="small"
+                    sx={{ color: (theme) => theme.palette.common.black }}
                   />
                 </ListItemButton>
               </ListItem>
-            </List>
-          </Grid>
-
-          <Grid item md={3} sm={6} xs={12}>
-            <List>
-              <ListSubheader
-                sx={{
-                  mb: 2,
-                  fontFamily: `${secondaryFont.style.fontFamily} !important`,
-                  color: (theme) => theme.palette.common.black,
-                  background: "transparent",
-                  fontSize: (theme) => theme.typography.h4,
-                }}
-              >
-                Office Address
-              </ListSubheader>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <LocationOn
-                      fontSize="small"
-                      sx={{ color: (theme) => theme.palette.common.black }}
-                    />
-                  </ListItemIcon>
-                  <ListItemText
-                    sx={{
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="435, 4th floor Emrald Tower, Hathipole, Udaipur"
-                  />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <Phone
-                      fontSize="small"
-                      sx={{ color: (theme) => theme.palette.common.black }}
-                    />
-                  </ListItemIcon>
-                  <ListItemText
-                    sx={{
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="+91 9928736111"
-                  />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <Email
-                      fontSize="small"
-                      sx={{ color: (theme) => theme.palette.common.black }}
-                    />
-                  </ListItemIcon>
-                  <ListItemText
-                    sx={{
-                      color: (theme) => theme.palette.common.black,
-                      "& .MuiTypography-root": {
-                        ...typography.body2,
-                      },
-                    }}
-                    primary="shoqeen@gmail.com"
-                  />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding sx={{ justifyContent: "left" }}>
-                <Stack direction="row" spacing={1} pl={2} mt={1.5}>
-                  <Box>
-                    <Stack
-                      direction="row"
-                      justifyContent="center"
-                      alignItems="center"
-                      sx={{
-                        p: 0.5,
-                        background: (theme) =>
-                          alpha(theme.palette.common.black, 0.4),
-                        borderRadius: "4px",
-                      }}
-                    >
-                      <Facebook
-                        fontSize="small"
-                        sx={{ color: (theme) => theme.palette.common.black }}
-                      />
-                    </Stack>
-                  </Box>
-
-                  <Box>
-                    <Stack
-                      direction="row"
-                      justifyContent="center"
-                      alignItems="center"
-                      sx={{
-                        p: 0.5,
-                        background: (theme) =>
-                          alpha(theme.palette.common.black, 0.4),
-                        borderRadius: "4px",
-                      }}
-                    >
-                      <Instagram
-                        fontSize="small"
-                        sx={{ color: (theme) => theme.palette.common.black }}
-                      />
-                    </Stack>
-                  </Box>
-
-                  <Box>
-                    <Stack
-                      direction="row"
-                      justifyContent="center"
-                      alignItems="center"
-                      sx={{
-                        p: 0.5,
-                        background: (theme) =>
-                          alpha(theme.palette.common.black, 0.4),
-                        borderRadius: "4px",
-                      }}
-                    >
-                      <LinkedIn
-                        fontSize="small"
-                        sx={{ color: (theme) => theme.palette.common.black }}
-                      />
-                    </Stack>
-                  </Box>
-                </Stack>
-              </ListItem>
-            </List>
+            </Stack>
           </Grid>
         </Grid>
       </Container>
@@ -353,11 +190,12 @@ const Footer = () => {
       >
         <Box
           sx={{
-            py: 1,
+            py: 2,
+            textAlign: "center",
           }}
         >
-          <Typography variant="overline" color="common.white" fontWeight={400}>
-            © Copyright Qr. All Rights Reserved
+          <Typography variant="caption" color="common.white" fontWeight={400}>
+            © Copyright Qr Ticket System. All Rights Reserved
           </Typography>
         </Box>
       </Container>

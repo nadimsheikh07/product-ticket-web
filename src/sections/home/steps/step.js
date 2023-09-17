@@ -1,4 +1,4 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography, alpha } from "@mui/material";
 import React from "react";
 
 const Step = () => {
@@ -16,7 +16,7 @@ const Step = () => {
                   height: "250px",
                   width: "250px",
                   m: "auto",
-                  background: "rgba(54, 161, 212, 0.12)",
+                  background: (theme) => alpha(theme.palette.primary.main, 0.1),
                   borderRadius: "16px",
                   boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
                   backdropFilter: "blur(1.6px)",

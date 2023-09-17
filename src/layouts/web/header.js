@@ -138,6 +138,14 @@ const Header = (props) => {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  let buttonColor = "inherit";
+
+  if (isOffset) {
+    buttonColor = "secondary";
+  } else {
+    buttonColor = "primary";
+  }
+
   return (
     <>
       <Box>
@@ -151,8 +159,8 @@ const Header = (props) => {
             top: isOffset ? "0px" : "0px",
             background: (theme) =>
               isOffset
-                ? alpha(theme.palette.common.white, 0.9)
-                : alpha(theme.palette.common.white, 1),
+                ? alpha(theme.palette.primary.main, 1)
+                : alpha(theme.palette.secondary.main, 1),
             transition: (theme) =>
               `${theme.transitions.create(
                 ["top", "color", "background-color", "box-shadow"],
@@ -185,33 +193,35 @@ const Header = (props) => {
                   alignItems: "center",
                 }}
               >
-                {navItems.map((item) => (
-                  <Button
-                    key={item}
-                    sx={{
-                      fontWeight: 500,
-                      color: (theme) => {
-                        let color = theme.palette.common.white;
+                {navItems.map((item) => {
+                  return (
+                    <Button
+                      key={item}
+                      sx={{
+                        fontWeight: 500,
+                        color: (theme) => {
+                          let color = theme.palette.common.white;
 
-                        if (isOffset) {
-                          color = theme.palette.common.black;
-                        } else {
-                          color = theme.palette.common.white;
-                        }
-                        return pathname !== item?.href
-                          ? color
-                          : theme.palette.primary.main;
-                      },
-                    }}
-                    color={pathname !== item?.href ? "inherit" : "primary"}
-                    component={Link}
-                    href={item?.href}
-                    onClick={() => setMobileOpen(false)}
-                    variant={pathname == item?.href ? "outlined" : ""}
-                  >
-                    {item?.title}
-                  </Button>
-                ))}
+                          if (isOffset) {
+                            color = theme.palette.common.black;
+                          } else {
+                            color = theme.palette.common.white;
+                          }
+                          return pathname !== item?.href
+                            ? color
+                            : theme.palette[buttonColor]?.main;
+                        },
+                      }}
+                      color={pathname !== item?.href ? "inherit" : buttonColor}
+                      component={Link}
+                      href={item?.href}
+                      onClick={() => setMobileOpen(false)}
+                      variant={pathname == item?.href ? "outlined" : ""}
+                    >
+                      {item?.title}
+                    </Button>
+                  );
+                })}
               </Box>
               <Box
                 sx={{
@@ -228,10 +238,11 @@ const Header = (props) => {
                   color: (theme) => {
                     let color = theme.palette.common.white;
                     if (isOffset) {
-                      color = theme.palette.common.black;
+                      color = theme.palette.common.white;
                     } else {
                       color = theme.palette.common.white;
                     }
+                    return color;
                   },
                   display: { md: "none", lg: "none", xl: "none" },
                 }}
@@ -246,6 +257,20 @@ const Header = (props) => {
                       onClick={() =>
                         router.push("https://qr-ticket-client.vercel.app/")
                       }
+                      sx={{
+                        fontWeight: 500,
+                        color: (theme) => {
+                          let color = theme.palette.primary.main;
+
+                          if (isOffset) {
+                            color = theme.palette.secondary.main;
+                          } else {
+                            color = theme.palette.primary.main;
+                          }
+                          return color;
+                        },
+                      }}
+                      color={buttonColor}
                     >
                       Log In
                     </Button>
