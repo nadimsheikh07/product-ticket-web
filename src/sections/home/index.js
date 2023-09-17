@@ -11,7 +11,7 @@ const HomeSection = () => {
           component="img"
           sx={{
             width: "100%",
-            height: { md: "400px", sm: "250px", xs: "250px" },
+            height: { md: "400px", sm: "200px", xs: "200px" },
             backgroundSize: "cover",
             objectFit: "cover",
           }}
