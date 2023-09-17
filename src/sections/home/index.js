@@ -11,7 +11,7 @@ const HomeSection = () => {
           component="img"
           sx={{
             width: "100%",
-            height: { md: "400px", sm: "450px", xs: "450px" },
+            height: { md: "400px", sm: "250px", xs: "250px" },
             backgroundSize: "cover",
             objectFit: "cover",
           }}
@@ -21,7 +21,7 @@ const HomeSection = () => {
         <Box>
           <About />
         </Box>
-        <Box >
+        <Box>
           <StepsProcedure />
         </Box>
       </Stack>
