@@ -12,7 +12,7 @@ const TwiceImage = ({
     <Box
       sx={{
         position: "relative",
-        height: { md: "400px", sm: "300px", xs: "300px" },
+        height: { md: "400px", sm: "250px", xs: "250px" },
       }}
     >
       <Grid
@@ -31,12 +31,12 @@ const TwiceImage = ({
             background: (theme) => theme?.palette[bgColor]?.main,
             border: (theme) => `${borderWidth} solid`,
             borderColor: (theme) =>
-              `${theme?.palette.primary?.lighter} !important`,
+              `${theme?.palette.primary?.light} !important`,
             zIndex: -1,
             borderRadius: "5px",
           },
         }}
-        spacing={4}
+        spacing={{ md: 4, sm: 2, xs: 2 }}
       >
         <Grid item md={6} lg={6}>
           <ImageComponent
