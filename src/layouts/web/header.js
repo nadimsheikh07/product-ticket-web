@@ -93,32 +93,6 @@ const Header = (props) => {
       </Stack>
       <Divider />
       <List>
-        <Stack direction="row" justifyContent="space-between">
-          <ListItem>
-            <Button
-              variant="contained"
-              fullWidth
-              onClick={() => {
-                router.push("https://qr-ticket-client.vercel.app/");
-                setMobileOpen(false);
-              }}
-            >
-              Log In
-            </Button>
-          </ListItem>
-          {/* <ListItem>
-            <Button
-              variant="contained"
-              fullWidth
-              onClick={() => {
-                router.push("/auth/register");
-                setMobileOpen(false);
-              }}
-            >
-              Sign Up
-            </Button>
-          </ListItem> */}
-        </Stack>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton
@@ -127,10 +101,29 @@ const Header = (props) => {
               onClick={() => setMobileOpen(false)}
               sx={{ textAlign: "left" }}
             >
-              <ListItemText sx={{}} primary={item?.title} />
+              <ListItemText
+                sx={{
+                  "& .MuiTypography-root": {
+                    fontSize: "14px",
+                  },
+                }}
+                primary={item?.title}
+              />
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem>
+          <Button
+            variant="contained"
+            fullWidth
+            onClick={() => {
+              router.push("https://qr-ticket-client.vercel.app/");
+              setMobileOpen(false);
+            }}
+          >
+            Log In
+          </Button>
+        </ListItem>
       </List>
     </Box>
   );
