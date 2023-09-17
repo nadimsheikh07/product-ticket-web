@@ -74,7 +74,6 @@ const Header = (props) => {
         <Box sx={{ my: 2 }}>
           <Box
             width="80px"
-            
             // maxWidth={"130px"}
             component="img"
             src="/bgbanner.jpg"
@@ -100,7 +99,7 @@ const Header = (props) => {
               variant="contained"
               fullWidth
               onClick={() => {
-                router.push("/auth/login");
+                router.push("https://qr-ticket-client.vercel.app/");
                 setMobileOpen(false);
               }}
             >
