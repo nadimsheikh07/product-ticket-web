@@ -115,6 +115,12 @@ const CodePage = () => {
     formik.resetForm();
   };
 
+  React.useEffect(() => {
+    if (code) {
+      formik.setFieldValue("code", code);
+    }
+  }, [code]);
+
   const getProductDetail = async () => {
     await axiosInstance
       .get(`/api/product_scan/${code}`)
