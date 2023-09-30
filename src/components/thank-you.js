@@ -47,7 +47,7 @@ export default function ThankyouComponent({ open, onReset }) {
           Your complain has received
           <br />
           <br />
-          <Link>{open}</Link>
+          Product Code: <Link>{open}</Link>
           <br />
           <br />
           We will contact you soon

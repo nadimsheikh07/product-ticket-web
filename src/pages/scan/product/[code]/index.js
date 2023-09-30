@@ -8,7 +8,7 @@ import { useSnackbar } from "notistack";
 import React from "react";
 
 const CodePage = () => {
-  const { query } = useRouter();
+  const { query, push } = useRouter();
   const { code } = query;
   const { enqueueSnackbar } = useSnackbar();
   const [showMobile, setShowMobile] = React.useState(true);
@@ -113,6 +113,7 @@ const CodePage = () => {
   const onReset = () => {
     setMessage(false);
     formik.resetForm();
+    push("/");
   };
 
   React.useEffect(() => {
