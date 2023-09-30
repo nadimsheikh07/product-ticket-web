@@ -69,6 +69,26 @@ const ProductDetail = ({ formik, productDetail }) => {
           <Box>
             <Stack direction="row" spacing={3} alignItems="center">
               <Box sx={{ width: "200px" }}>
+                <Typography fontWeight={600}>Product Name :</Typography>
+              </Box>
+              <Box>
+                <Typography variant="body2">{productDetail?.name}</Typography>
+              </Box>
+            </Stack>
+          </Box>
+          <Box>
+            <Stack direction="row" spacing={3} alignItems="center">
+              <Box sx={{ width: "200px" }}>
+                <Typography fontWeight={600}>Product Code :</Typography>
+              </Box>
+              <Box>
+                <Typography variant="body2">{productDetail?.code}</Typography>
+              </Box>
+            </Stack>
+          </Box>
+          <Box>
+            <Stack direction="row" spacing={3} alignItems="center">
+              <Box sx={{ width: "200px" }}>
                 <Typography fontWeight={600}>Invoice No. :</Typography>
               </Box>
               <Box>
@@ -94,17 +114,6 @@ const ProductDetail = ({ formik, productDetail }) => {
           <Box>
             <Stack direction="row" spacing={3} alignItems="center">
               <Box sx={{ width: "200px" }}>
-                <Typography fontWeight={600}>Product Name :</Typography>
-              </Box>
-              <Box>
-                <Typography variant="body2">{productDetail?.name}</Typography>
-              </Box>
-            </Stack>
-          </Box>
-
-          <Box>
-            <Stack direction="row" spacing={3} alignItems="center">
-              <Box sx={{ width: "200px" }}>
                 <Typography fontWeight={600}>Model :</Typography>
               </Box>
               <Box>
@@ -116,7 +125,7 @@ const ProductDetail = ({ formik, productDetail }) => {
           <Box>
             <Stack direction="row" spacing={3} alignItems="center">
               <Box sx={{ width: "200px" }}>
-                <Typography fontWeight={600}>Warranty Start :</Typography>
+                <Typography fontWeight={600}>Warranty Start Date:</Typography>
               </Box>
               <Box>
                 <Typography variant="body2">
@@ -129,7 +138,7 @@ const ProductDetail = ({ formik, productDetail }) => {
           <Box>
             <Stack direction="row" spacing={3} alignItems="center">
               <Box sx={{ width: "200px" }}>
-                <Typography fontWeight={600}>Warranty End :</Typography>
+                <Typography fontWeight={600}>Warranty End Date:</Typography>
               </Box>
               <Box>
                 <Typography variant="body2">
