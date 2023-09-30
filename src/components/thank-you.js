@@ -5,6 +5,7 @@ import { Link, Button, Divider, Typography, Stack } from "@mui/material";
 import { OrderCompleteIllustration } from "@/assets/illustrations";
 import { DialogAnimate } from "./animate";
 import Iconify from "./iconify/Iconify";
+import { useRouter } from "next/navigation";
 // components
 
 // ----------------------------------------------------------------------
@@ -15,7 +16,8 @@ ThankyouComponent.propTypes = {
   onDownloadPDF: PropTypes.func,
 };
 
-export default function ThankyouComponent({ open, onReset }) {
+export default function ThankyouComponent({ open }) {
+  const router = useRouter();
   return (
     <DialogAnimate
       fullScreen
@@ -65,7 +67,7 @@ export default function ThankyouComponent({ open, onReset }) {
             size="large"
             color="inherit"
             variant="outlined"
-            onClick={onReset}
+            onClick={() => router.push("/")}
             startIcon={<Iconify icon="eva:arrow-ios-back-fill" />}
           >
             Home
