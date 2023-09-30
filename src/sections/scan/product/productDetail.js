@@ -114,7 +114,7 @@ const ProductDetail = ({ formik, productDetail }) => {
           <Box>
             <Stack direction="row" spacing={3} alignItems="center">
               <Box sx={{ width: "200px" }}>
-                <Typography fontWeight={600}>Model :</Typography>
+                <Typography fontWeight={600}>Serial No.:</Typography>
               </Box>
               <Box>
                 <Typography variant="body2">{productDetail?.model}</Typography>
