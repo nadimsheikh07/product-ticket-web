@@ -20,7 +20,9 @@ const ProductSection = ({
             container
             justifyContent="center"
             alignItems="center"
-            height="100vh"
+            sx={{
+              height: { md: "100vh", sm: "100%", xs: "100%" },
+            }}
           >
             <Grid item md={6}>
               <Box>
