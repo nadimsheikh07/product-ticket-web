@@ -7,10 +7,18 @@ const MobileForm = ({ formik }) => {
     <>
       <TextBox
         fullWidth
+        isMaxLenght={10}
         name="phone"
         label="Mobile no."
         value={formik.values.phone}
-        onChange={formik.handleChange}
+        onChange={(e) => {
+          if (e) {
+            formik.setFieldValue(
+              "phone",
+              e.target.value.replace(/\D/gm, "")
+            );
+          }
+          }}
         helperText={formik.touched.phone && formik.errors.phone}
       />
     </>

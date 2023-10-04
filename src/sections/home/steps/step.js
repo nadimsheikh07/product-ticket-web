@@ -1,39 +1,77 @@
-import { Box, Grid, Stack, Typography, alpha } from "@mui/material";
-import React from "react";
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea, Grid } from '@mui/material';
 
-const Step = () => {
+const Step =()=> {
   return (
     <>
-      <Grid container spacing={3} justifyContent="center">
-        {[...Array(4)].map((elem, index) => {
-          return (
-            <Grid item md={3} sm={6} xs={12} key={index}>
-              <Stack
-                justifyContent="center"
-                alignItems="center"
-                sx={{
-                  border: (theme) => `2px solid ${theme.palette.primary.main}`,
-                  height: "250px",
-                  width: "250px",
-                  m: "auto",
-                  background: (theme) => alpha(theme.palette.primary.main, 0.1),
-                  borderRadius: "16px",
-                  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-                  backdropFilter: "blur(1.6px)",
-                  WebkitBackdropFilter: "blur(1.6px)",
-                  border: "1px solid rgba(54, 161, 212, 0.21)",
-                }}
-              >
-                <Typography variant="h3" color="primary">
-                  Step {index + 1}
-                </Typography>
-              </Stack>
-            </Grid>
-          );
-        })}
-      </Grid>
+    <Grid container spacing={2}>
+      <Grid item lg={3} md={3} sm={12} xs={12}>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="160"
+          image="/stepbystepqr.jpg"
+          alt="green iguana"
+        />
+        <CardContent>
+         Find the qr from your product package.
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Grid>
+    <Grid item lg={3} md={3} sm={12} xs={12}>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="160"
+          image="/stepbystepqr.jpg"
+          alt="green iguana"
+        />
+        <CardContent>
+         scan the qr using your mobile phone.
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Grid>
+    <Grid item lg={3} md={3} sm={12} xs={12}>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="160"
+          image="/stepbystepqr.jpg"
+          alt="green iguana"
+        />
+        <CardContent>
+         after scanning qr code you will be redirected to the detail page there fill the necessary fields.
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Grid>
+    <Grid item lg={3} md={3} sm={12} xs={12}>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="160"
+          image="/stepbystepqr.jpg"
+          alt="green iguana"
+        />
+        <CardContent>
+         after filling the details simply click on submit button.
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Grid>
+
+    </Grid>
     </>
   );
-};
-
+}
 export default Step;
