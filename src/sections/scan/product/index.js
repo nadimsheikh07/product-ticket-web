@@ -42,7 +42,7 @@ const ProductSection = ({
                           variant="contained"
                           loading={formik?.isSubmitting}
                         >
-                          {showMobile ? "Get OTP" : "Submit"}
+                          {showMobile ? "Send OTP" : "Submit"}
                         </LoadingButton>
                       </Box>
                     </CardContent>
