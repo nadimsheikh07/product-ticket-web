@@ -16,7 +16,7 @@ const Step =()=> {
           component="img"
           height="160"
           image="/stepbystepqr.jpg"
-          alt="green iguana"
+          alt="Step 1"
         />
         <CardContent>
          Find the qr from your product package.
@@ -31,7 +31,7 @@ const Step =()=> {
           component="img"
           height="160"
           image="/stepbystepqr.jpg"
-          alt="green iguana"
+          alt="Step 2"
         />
         <CardContent>
          scan the qr using your mobile phone.
@@ -46,7 +46,7 @@ const Step =()=> {
           component="img"
           height="160"
           image="/stepbystepqr.jpg"
-          alt="green iguana"
+          alt="Step 3"
         />
         <CardContent>
          after scanning qr code you will be redirected to the detail page there fill the necessary fields.
@@ -61,7 +61,7 @@ const Step =()=> {
           component="img"
           height="160"
           image="/stepbystepqr.jpg"
-          alt="green iguana"
+          alt="Step 4"
         />
         <CardContent>
          after filling the details simply click on submit button.

@@ -76,7 +76,7 @@ const Header = (props) => {
             width="80px"
             // maxWidth={"130px"}
             component="img"
-            src="/bgbanner.jpg"
+            src="/qrticketweeb.png"
             onClick={() => setMobileOpen(false)}
           />
         </Box>
@@ -175,7 +175,7 @@ const Header = (props) => {
                 <Box
                   component="img"
                   alt="logo"
-                  src="/bgbanner.jpg"
+                  src="/qrticketweeb.png"
                   sx={{ width: "40px" }}
                 />
               </Box>
