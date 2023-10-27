@@ -6,6 +6,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import SnackbarProvider from "@/components/snackbar/SnackbarProvider";
 import Head from "next/head";
 import PropTypes from "prop-types";
+import { StepperProvider } from "@/components/stepper/stepperContext";
 
 MyApp.propTypes = {
   Component: PropTypes.elementType,
@@ -35,7 +36,9 @@ export default function MyApp(props) {
             <MotionLazyContainer>
               <ThemeSettings>
                 <SnackbarProvider>
-                  {getLayout(<Component {...pageProps} />)}
+                  <StepperProvider>
+                    {getLayout(<Component {...pageProps} />)}
+                  </StepperProvider>
                 </SnackbarProvider>
               </ThemeSettings>
             </MotionLazyContainer>

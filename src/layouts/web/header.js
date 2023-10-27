@@ -46,10 +46,10 @@ const navItems = [
   //   title: "Career",
   //   href: "/careers",
   // },
-  // {
-  //   title: "Contact",
-  //   href: "/contact-us",
-  // },
+  {
+    title: "Contact",
+    href: "/contact-us",
+  },
 ];
 
 const Header = (props) => {
