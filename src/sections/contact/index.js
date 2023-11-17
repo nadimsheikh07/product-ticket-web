@@ -35,6 +35,7 @@ const ContactSection = () => {
       file: "",
       status: "",
       status: "pending",
+      company_id:1
     },
     validate: (values) => {
       const errors = {};
@@ -42,10 +43,19 @@ const ContactSection = () => {
         errors.name = "Name is Required";
       }
       if (!values.email) {
-        errors.email = "Email is Required";
+        errors.email = "Email is required";
+      } else if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+      ) {
+        errors.email = "Invalid email address";
       }
+      const phoneRegex = /^\d+$/i;
       if (!values.phone) {
-        errors.phone = "Phone is Required";
+        errors.phone = "Phone is required";
+      } else if (!phoneRegex.test(values.phone)) {
+        errors.phone = "Invalid phone number";
+      } else if (values.phone.length < 10 || values.phone.length > 10) {
+        errors.phone = "Phone number must be 10 digit";
       }
       if (!values.product_name) {
         errors.product_name = "Product name is Required";
@@ -103,6 +113,7 @@ const ContactSection = () => {
           <Grid container spacing={2}>
             <Grid item md={6}>
               <TextBox
+                isMaxLenght={25}
                 fullWidth
                 label="Name"
                 name="name"
@@ -116,9 +127,9 @@ const ContactSection = () => {
             <Grid item md={6}>
               <TextBox
                 fullWidth
-                label="Email"
+                isMaxLenght={50}
+                label="Client Email"
                 name="email"
-                type="email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 error={formik.touched.email && formik.errors.email}
@@ -129,17 +140,26 @@ const ContactSection = () => {
             <Grid item md={12}>
               <TextBox
                 fullWidth
-                label="Phone"
+                label="Client Phone"
+                isMaxLenght={10}
                 name="phone"
-                type="number"
                 value={formik.values.phone}
-                onChange={formik.handleChange}
+                onChange={(e) => {
+                  if (e) {
+                    formik.setFieldValue(
+                      "phone",
+                      e.target.value.replace(/\D/gm, "")
+                    );
+                  }
+                }}
                 error={formik.touched.phone && formik.errors.phone}
                 helperText={formik.touched.phone && formik.errors.phone}
+                required
               />
             </Grid>
             <Grid item md={12}>
               <TextBox
+                isMaxLenght={250}
                 fullWidth
                 label="Address"
                 name="address"
@@ -164,6 +184,7 @@ const ContactSection = () => {
           <Grid item md={6}>
             <TextBox
               fullWidth
+              isMaxLenght={25}
               label="Product Name"
               name="product_name"
               value={formik.values.product_name}
@@ -178,6 +199,7 @@ const ContactSection = () => {
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextBox
               fullWidth
+              isMaxLenght={50}
               label="Serial No."
               name="serial_number"
               value={formik?.values?.serial_number}
@@ -198,6 +220,7 @@ const ContactSection = () => {
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextBox
               fullWidth
+              isMaxLenght={50}
               label="Invoice No."
               name="invoice_number"
               value={formik?.values?.invoice_number}
@@ -269,7 +292,11 @@ const ContactSection = () => {
               helperText={
                 formik.touched.warranty_end && formik.errors.warranty_end
               }
-              minDate={formik.values.warranty_start}
+              minDate={
+                formik.values.warranty_start
+                  ? dayjs(formik.values.warranty_start)
+                  : null
+              }
             />
           </Grid>
           <Grid item lg={12} md={12} sm={12} xs={12}>
