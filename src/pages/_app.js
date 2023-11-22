@@ -7,6 +7,9 @@ import SnackbarProvider from "@/components/snackbar/SnackbarProvider";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import { StepperProvider } from "@/components/stepper/stepperContext";
+import { useRouter } from "next/router";
+import axiosInstance from "@/utils/axios";
+import React from "react";
 
 MyApp.propTypes = {
   Component: PropTypes.elementType,
@@ -16,10 +19,14 @@ MyApp.propTypes = {
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
+  const { query, pathname } = useRouter();
+  const { company_code } = query;
+
+  React.useEffect(() => {
+    axiosInstance.defaults.headers.common.company_code = company_code;
+  }, [company_code, pathname]);
 
   const getLayout = Component.getLayout ?? ((page) => page);
-
-  console.log("getLayout", getLayout);
   return (
     <>
       <Head>
