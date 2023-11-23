@@ -22,7 +22,7 @@ export default function MyApp(props) {
   const { query, pathname } = useRouter();
   
   const { company_code } = query;
-
+console.log("company_code",company_code)
   React.useEffect(() => {
     axiosInstance.defaults.headers.common.company_code = company_code;
   }, [company_code, pathname]);
