@@ -57,7 +57,9 @@ const Header = (props) => {
   const { window } = props;
   const isOffset = useOffSetTop(48);
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const { pathname } = useRouter();
+  const { query, pathname } = useRouter();
+
+  const { company_code } = query;
 
   const handleDrawerToggle = (boolean) => {
     setMobileOpen((prevState) => !prevState);
@@ -97,7 +99,7 @@ const Header = (props) => {
           <ListItem key={item} disablePadding>
             <ListItemButton
               component={Link}
-              href={item?.href}
+              href={`${item?.href}?company_code=${company_code}`}
               onClick={() => setMobileOpen(false)}
               sx={{ textAlign: "left" }}
             >
@@ -207,7 +209,7 @@ const Header = (props) => {
                       }}
                       color={pathname !== item?.href ? "inherit" : buttonColor}
                       component={Link}
-                      href={item?.href}
+                      href={`${item?.href}?company_code=${company_code}`}
                       onClick={() => setMobileOpen(false)}
                       variant={pathname == item?.href ? "outlined" : ""}
                     >

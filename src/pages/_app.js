@@ -20,7 +20,6 @@ MyApp.propTypes = {
 export default function MyApp(props) {
   const { Component, pageProps } = props;
   const { query, pathname } = useRouter();
-
   const { company_code } = query;
   console.log("company_code", company_code);
   React.useEffect(() => {

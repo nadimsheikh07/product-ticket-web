@@ -130,7 +130,7 @@ const ScrollableTabs = ({
                   isLastStep
                     ? (id || isTraningClassCalenderPopUp) === "new"
                       ? "Submit"
-                      : "Update"
+                      : "Create"
                     : "Next"
                 }
               />
