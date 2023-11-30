@@ -5,7 +5,7 @@ import { Link, Button, Divider, Typography, Stack } from "@mui/material";
 import { OrderCompleteIllustration } from "@/assets/illustrations";
 import { DialogAnimate } from "./animate";
 import Iconify from "./iconify/Iconify";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 // components
 
 // ----------------------------------------------------------------------
@@ -18,6 +18,8 @@ ThankyouComponent.propTypes = {
 
 export default function ThankyouComponent({ open }) {
   const router = useRouter();
+  const { query } = router;
+  const { company_code } = query;
   return (
     <DialogAnimate
       fullScreen
@@ -67,7 +69,12 @@ export default function ThankyouComponent({ open }) {
             size="large"
             color="inherit"
             variant="outlined"
-            onClick={() => router.push("/")}
+            onClick={() =>
+              router.push({
+                pathname: "/",
+                query: { company_code: company_code },
+              })
+            }
             startIcon={<Iconify icon="eva:arrow-ios-back-fill" />}
           >
             Home
